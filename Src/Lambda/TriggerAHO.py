@@ -12,13 +12,12 @@ def lambda_handler(event, context):
 
 
     # Call the AWS HealthOmics start_run API
-    aho = boto3.client('healthomics')
+    aho = boto3.client('omics')
     response = aho.start_run(
         workflowId=aho_workflow_id,
-        roleArn: "arn:aws:iam::123456789012:role/AHOrole",
+        roleArn="arn:aws:iam::123456789012:role/AHOrole",
         parameters=params,
         outputUri=output_s3_path
-        }
     )
 
     return {
